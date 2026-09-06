@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз цены автомобиля</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main class="page-shell">
+    <section class="hero">
+        <p class="eyebrow">USED CARS PRICE API</p>
+        <h1>Прогноз стоимости автомобиля</h1>
+        <p class="subtitle">Заполните характеристики автомобиля и получите прогноз модели.</p>
+    </section>
+
+    <section class="card">
+        <form id="prediction-form">
+            <div class="form-grid">
+                <label>
+                    Производитель
+                    <input name="manufacturer" value="Ford" required>
+                </label>
+                <label>
+                    Модель
+                    <input name="model" value="Escape">
+                </label>
+                <label>
+                    Год выпуска
+                    <input name="year" type="number" min="2000" max="2035" value="2019" required>
+                </label>
+                <label>
+                    Пробег
+                    <input name="mileage" type="number" min="0" max="800000" value="55000" required>
+                </label>
+                <label>
+                    Двигатель
+                    <input name="engine" value="2.0L I4 Turbo">
+                </label>
+                <label>
+                    Коробка передач
+                    <input name="transmission" value="Automatic">
+                </label>
+                <label>
+                    Привод
+                    <input name="drivetrain" value="Front-wheel Drive">
+                </label>
+                <label>
+                    Тип топлива
+                    <input name="fuel_type" value="Gasoline">
+                </label>
+                <label>
+                    MPG
+                    <input name="mpg" value="25-32">
+                </label>
+                <label>
+                    Цвет кузова
+                    <input name="exterior_color" value="White">
+                </label>
+                <label>
+                    Цвет салона
+                    <input name="interior_color" value="Black">
+                </label>
+                <label>
+                    Были повреждения? (0/1)
+                    <input name="accidents_or_damage" type="number" min="0" max="1" step="1" value="0">
+                </label>
+                <label>
+                    Один владелец? (0/1)
+                    <input name="one_owner" type="number" min="0" max="1" step="1" value="1">
+                </label>
+                <label>
+                    Только личное использование? (0/1)
+                    <input name="personal_use_only" type="number" min="0" max="1" step="1" value="1">
+                </label>
+                <label>
+                    Рейтинг водителя
+                    <input name="driver_rating" type="number" min="0" max="5" step="0.1" value="4.8">
+                </label>
+                <label>
+                    Количество отзывов
+                    <input name="driver_reviews_num" type="number" min="0" step="1" value="120">
+                </label>
+            </div>
+
+            <button id="submit-button" type="submit">Рассчитать цену</button>
+        </form>
+
+        <div id="status" class="status" aria-live="polite"></div>
+        <div id="result" class="result hidden">
+            <span>Предсказанная цена</span>
+            <strong id="predicted-price">—</strong>
+        </div>
+    </section>
+
+    <footer>Запрос выполняется через <code>POST /predict</code></footer>
+</main>
+<script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "model_type": "DecisionTreeRegressor",
+  "model_version": "1.0.0",
+  "target": "price",
+  "pipeline_file": "used_cars_pipeline.joblib",
+  "feature_names": [
+    "year",
+    "mileage",
+    "accidents_or_damage",
+    "one_owner",
+    "personal_use_only",
+    "driver_rating",
+    "driver_reviews_num",
+    "mpg_l",
+    "mpg_r",
+    "engine_l",
+    "manufacturer_enc",
+    "dt_type_enc",
+    "tm_type_enc",
+    "fu_type_enc",
+    "int_col_simp_enc",
+    "ext_col_simp_enc"
+  ],
+  "train_rows": 604565,
+  "test_rows": 151142,
+  "filters": {
+    "price_lt": 1000000,
+    "year_gte": 2000,
+    "mileage_lte": 800000
+  }
+}
